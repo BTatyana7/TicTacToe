@@ -1,14 +1,35 @@
 <?php
 
-namespace btat7\TicTacToe\View;
+namespace btat7\tic_tac_toe\View;
 
-use function cli\line;
+    use function cli\prompt;
+    use function cli\line;
+    use function cli\out;
 
-class View
+function showGameBoard($board)
 {
-    public function showGame()
-    {
-
-        line("This is the game intereface");
+    $boardArr = $board->getBoardArr();
+    $dim = $board->getDimension();
+    for ($i = 0; $i < $dim; $i++) {
+        for ($j = 0; $j < $dim; $j++) {
+            $tempVar = $boardArr[$i][$j];
+            out("|$tempVar");
+            if ($j === ($dim - 1)) {
+                out("|");
+            }
+        }
+        line();
     }
+
+    line("-------------------------------------------");
+}
+
+function showMessage($msg)
+{
+    line($msg);
+}
+
+function getValue($msg)
+{
+    return prompt($msg);
 }
