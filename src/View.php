@@ -1,6 +1,6 @@
 <?php
 
-namespace btat7\tic_tac_toe\View;
+namespace btat7\ticTacToe\View;
 
     use function cli\prompt;
     use function cli\line;
